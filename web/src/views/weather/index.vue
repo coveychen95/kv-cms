@@ -11,6 +11,7 @@
           class="w-full px-1 py-2 bg-transparent border-b text-weather-secondary focus:border-weather-secondary focus:outline-none focus:shadow-[0px_1px_0_0_#004E71]"
         />
         <ul
+          v-if="searchQuery"
           class="absolute w-full px-1 py-2 text-white shadow-md bg-weather-secondary top-[66px]"
         >
           <p v-if="searchError">Sorry, something went wrong, pleaser try again.</p>
