@@ -17,7 +17,7 @@
           <p v-if="searchError">Sorry, something went wrong, pleaser try again.</p>
           <p v-else-if="!searchError && searchResult.length === 0" class="py-2">No results match your query, try a different term.</p>
           <template v-else>
-            <li v-for="item in searchResult" :key="item.id" @click="previewCity(item)" class="py-2 cursor-pointer">{{item.place_name}}</li>
+            <li v-for="item in searchResult" :key="item?.id" @click="previewCity(item)" class="py-2 cursor-pointer">{{item.place_name}}</li>
           </template>
         </ul>
       </div>
@@ -25,16 +25,19 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import SiteNavigation from './component/SiteNavigation.vue'
   import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
   import axios from 'axios'
   const WEATHER_KEY = import.meta.env.VITE_APP_WEATHER_KEY
+
+  const router = useRouter()
   
   const searchQuery = ref('')
-  const queryTimeout = ref(null)
+  const queryTimeout = ref(0)
   const searchResult = ref(null)
-  const searchError = ref(null)
+  const searchError = ref(false)
 
   const getSearchResults = () => {
     queryTimeout.value = setTimeout(async () => {
@@ -49,11 +52,23 @@
         }
         return
       }
-      searchError.value = ''
+      searchError.value = false
     }, 300)
   }
 
-  const previewCity = (city) => {
-    console.log('city: ', city)
+  const previewCity = (item: any) => {
+    console.log('item: ', item)
+    const [city, state] = item.place_name.split(',')
+    router.push({
+      name: 'city',
+      params: {
+        city: `${city}-${state.replaceAll(' ', '')}`
+      },
+      query: {
+        lat: item.geometry.coordinates[1],
+        lng: item.geometry.coordinates[0],
+        preview: 1,
+      }
+    })
   }
 </script>
