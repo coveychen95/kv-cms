@@ -14,4 +14,5 @@
 - [ ] rainbow farts
 - [ ] drink notification
 - [ ] wechat notification
-- [ ] questionnaire 
+- [ ] questionnaire
+- [ ] markdown resume
