@@ -11,15 +11,14 @@
           class="w-full px-1 py-2 bg-transparent border-b text-weather-secondary focus:border-weather-secondary focus:outline-none focus:shadow-[0px_1px_0_0_#004E71]"
         />
         <ul
-          v-if="searchQuery"
+          v-if="searchQuery && searchResult"
           class="absolute w-full px-1 py-2 text-white shadow-md bg-weather-secondary top-[66px]"
         >
           <p v-if="searchError">Sorry, something went wrong, pleaser try again.</p>
-          <p v-if="searchQuery && !searchResult" class="py-2">No results match your query, try a different term.</p>
-          <template v-if="searchResult">
+          <p v-else-if="!searchError && searchResult.length === 0" class="py-2">No results match your query, try a different term.</p>
+          <template v-else>
             <li v-for="item in searchResult" :key="item.id" @click="previewCity(item)" class="py-2 cursor-pointer">{{item.place_name}}</li>
           </template>
-          
         </ul>
       </div>
     </main>
