@@ -13,11 +13,18 @@ const router = createRouter({
       path: '/weather',
       name: 'weather',
       component: () => import('/@/views/weather/index.vue'),
-    },
-    {
-      path: '/weather/:city',
-      name: 'city',
-      component: () => import('/@/views/weather/CityView.vue'),
+      children: [
+        {
+          path: 'search',
+          name: 'weatherSearch',
+          component: () => import('/@/views/weather/SearchCity.vue'),
+        },
+        {
+          path: ':city',
+          name: 'weatherCity',
+          component: () => import('/@/views/weather/CityView.vue'),
+        },
+      ],
     },
   ],
 })

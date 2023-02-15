@@ -5,11 +5,10 @@ import AsyncCity from './component/AsyncCity.vue'
 <template>
   <div>
     <Suspense>
-      <AsyncCity></AsyncCity>
+    <AsyncCity></AsyncCity>
       <template #fullback>
         <p>loading...</p>
       </template>
     </Suspense>
-    
   </div>
 </template>
