@@ -29,8 +29,10 @@ const getWeatherData = () => {
 const weatherData = await getWeatherData()
 const STORAGE_KEY_SAVED_CITIES = 'saved-cities'
 const removeCity = () => {
-  const cities = JSON.parse(localStorage.getItem(STORAGE_KEY_SAVED_CITIES))
-  const updatedCities = cities.filter((city) => city.id !== route.query.id)
+  const cities = JSON.parse(
+    localStorage.getItem(STORAGE_KEY_SAVED_CITIES) as string
+  )
+  const updatedCities = cities.filter((city: any) => city.id !== route.query.id)
   localStorage.setItem(STORAGE_KEY_SAVED_CITIES, JSON.stringify(updatedCities))
   router.push({
     name: 'weather',

@@ -51,7 +51,7 @@ import { reactive, ref } from 'vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { uid } from 'uid'
 import BaseModal from './BaseModal.vue'
-const STORAGE_KEY_SAVED_CITIES: string = 'saved-cities'
+const STORAGE_KEY_SAVED_CITIES = 'saved-cities'
 
 const route = useRoute()
 const router = useRouter()

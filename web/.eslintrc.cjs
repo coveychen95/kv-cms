@@ -39,10 +39,10 @@ module.exports = {
       'error',
       {
         singleQuote: true,
-        trailingComma: 'all',
-        bracketSpacing: true,
-        jsxBracketSameLine: true,
-        parser: 'flow',
+        // trailingComma: 'all',
+        // bracketSpacing: true,
+        // jsxBracketSameLine: true,
+        // parser: 'flow',
         semi: false, // 是否在语句末尾打印分号，这里选择不加
       },
     ],
