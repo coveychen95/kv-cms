@@ -10,7 +10,7 @@
 
 ## 功能
 
-- [ ] weather
+- [x] weather
 - [ ] rainbow farts
 - [ ] drink notification
 - [ ] wechat notification
