@@ -52,7 +52,9 @@ const removeCity = () => {
       </p>
     </div>
     <div class="flex flex-col items-center py-12 text-white">
-      <h1 class="mb-2 text-4xl">{{ $route.params.city.split('-')[0] }}</h1>
+      <h1 class="mb-2 text-4xl">
+        {{ ($route.params.city as string).split('-')[0] }}
+      </h1>
       <p class="mb-12 text-sm">
         {{
           new Date(weatherData.currentTime).toLocaleString('en-us', {

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { defineAsyncComponent } from 'vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,17 +13,23 @@ const router = createRouter({
     {
       path: '/weather',
       name: 'weather',
-      component: () => import('/@/views/weather/index.vue'),
+      component: defineAsyncComponent(
+        () => import('../views/weather/IndexView.vue')
+      ),
       children: [
         {
           path: 'search',
           name: 'weatherSearch',
-          component: () => import('/@/views/weather/SearchCity.vue'),
+          component: defineAsyncComponent(
+            () => import('/@/views/weather/SearchCity.vue')
+          ),
         },
         {
           path: ':city',
           name: 'weatherCity',
-          component: () => import('/@/views/weather/CityView.vue'),
+          component: defineAsyncComponent(
+            () => import('/@/views/weather/CityView.vue')
+          ),
         },
       ],
     },
