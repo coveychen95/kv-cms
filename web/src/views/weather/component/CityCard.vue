@@ -29,7 +29,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 <template>
   <div
-    class="flex px-3 py-6 rounded-md shadow cursor-pointer bg-weather-secondary-md"
+    class="container flex py-6 text-white rounded-md shadow cursor-pointer bg-weather-secondary-md"
   >
     <div class="flex flex-col flex-1">
       <h2 class="text-3xl">{{ city.city }}</h2>
@@ -37,13 +37,13 @@ withDefaults(defineProps<Props>(), {
     </div>
     <div class="flex flex-col gap-2">
       <p class="self-end text-3xl">
-        {{ Math.round(city.weather.main.temp) }}&deg; }}
+        {{ Math.round(city.weather.main.temp) }}&deg;
       </p>
       <div class="flex gap-2">
         <span class="text-xs">
           {{ 'H: ' + Math.round(city.weather.main.temp_max) }}
         </span>
-        <span>
+        <span class="text-xs">
           {{ 'L: ' + Math.round(city.weather.main.temp_min) }}
         </span>
       </div>
