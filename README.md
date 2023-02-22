@@ -10,8 +10,8 @@
 
 ## 功能
 
-- [x] 天气☁️  
- 之所以做这个是为了让自己吧 tailwind 用起来，毕竟光看一遍，哪能就会了呢
+- [x] **天气☁️**  
+ 之所以做这个是为了让自己吧 tailwind 用起来，毕竟光看一遍，哪能就会了呢。
 - [ ] rainbow farts
 - [ ] drink notification
 - [ ] wechat notification
