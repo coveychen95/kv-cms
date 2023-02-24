@@ -16,6 +16,7 @@ const router = createRouter({
       component: defineAsyncComponent(
         () => import('../views/weather/IndexView.vue')
       ),
+      redirect: '/weather/search',
       children: [
         {
           path: 'search',
@@ -32,6 +33,12 @@ const router = createRouter({
           ),
         },
       ],
+    },
+    {
+      path: '/markdown',
+      component: defineAsyncComponent(
+        () => import('/@/views/markdown/MarkdownView.vue')
+      ),
     },
   ],
 })
