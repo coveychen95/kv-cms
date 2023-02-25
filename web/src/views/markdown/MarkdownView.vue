@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <Viewer :value="content" :plugins="plugins"></Viewer> -->
-    <Editor v-model="content" :plugins="plugins"></Editor>
+    <Editor :value="content" :plugins="plugins" @change="onChange"></Editor>
   </div>
 </template>
 
@@ -16,4 +16,7 @@ import math from '@bytemd/plugin-math'
 
 const content = ref('')
 const plugins = [gfm(), highlight(), math()]
+const onChange = (val: string) => {
+  content.value = val
+}
 </script>
