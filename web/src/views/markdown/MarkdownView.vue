@@ -13,6 +13,7 @@ import 'bytemd/dist/index.css'
 import gfm from '@bytemd/plugin-gfm'
 import highlight from '@bytemd/plugin-highlight'
 import math from '@bytemd/plugin-math'
+import 'juejin-markdown-themes/dist/cyanosis.min.css'
 
 const content = ref('')
 const plugins = [gfm(), highlight(), math()]
@@ -20,3 +21,8 @@ const onChange = (val: string) => {
   content.value = val
 }
 </script>
+<style scoped>
+:deep(.bytemd) {
+  height: 100vh;
+}
+</style>
