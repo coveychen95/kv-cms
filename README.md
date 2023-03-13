@@ -4,8 +4,7 @@
 
 ## 技术栈
 
-- [ ] GO
-- [ ] Vue3 + TS + Vite + Pinia
+Vue3 + TS + Vite + Pinia
 
 
 ## 功能
